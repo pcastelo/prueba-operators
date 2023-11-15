@@ -5,7 +5,6 @@ metadata:
   name: {{ .name }}-policy-placement
   namespace: policies
   annotations:
-    argocd.argoproj.io/sync-wave: "0"  
 placementRef:
   name: openshift-gitops
   apiGroup: cluster.open-cluster-management.io
