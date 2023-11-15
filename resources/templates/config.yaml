@@ -1,11 +1,4 @@
 ---
-kind: Project
-apiVersion: project.openshift.io/v1
-metadata:
-  name: policies
-spec: {}
-
----
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -27,38 +20,7 @@ metadata:
   namespace: policies
 spec:
   clusterSet: gitops-clusters
-
 ---
-apiVersion: cluster.open-cluster-management.io/v1beta1
-kind: Placement
-metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: '5'
-  name: gitops-clusters
-  namespace: openshift-gitops
-  labels:
-    app.kubernetes.io/instance: advance-cluster-management-in-cluster
-spec:
-  predicates:
-    - requiredClusterSelector:
-        labelSelector:
-          matchExpressions:
-            - key: vendor
-              operator: In
-              values:
-                - OpenShift
----
-apiVersion: cluster.open-cluster-management.io/v1beta1
-kind: Placement
-metadata:
-  name: policies-placement
-  namespace: policies
-spec:
-  clusterSets:
-    - gitops-clusters
----
-
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: PlacementDecision
 metadata:
