@@ -1,5 +1,15 @@
-kind: Project
-apiVersion: project.openshift.io/v1
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
 metadata:
   name: policies
-spec: {}
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
