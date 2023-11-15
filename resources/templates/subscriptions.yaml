@@ -40,7 +40,7 @@ spec:
                   namespace: {{ .namespace }}
                 spec:
                   targetNamespaces:
-                    - { { .namespace } }
+                  - {{ .namespace }}
             {{- end }}
             - complianceType: musthave
               objectDefinition:
