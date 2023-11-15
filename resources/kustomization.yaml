@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
 - policies-namespace.yaml
 - policies-placement.yaml
-- operators/
