@@ -1,0 +1,15 @@
+{{- range .Values.subscriptions }}
+apiVersion: policy.open-cluster-management.io/v1
+kind: PlacementBinding
+metadata:
+  name: {{ .name }}-policy-placement
+  namespace: policies
+placementRef:
+  name: openshift-gitops
+  apiGroup: cluster.open-cluster-management.io
+  kind: Placement
+subjects:
+  - name: {{ .name }}-policy
+    apiGroup: policy.open-cluster-management.io
+    kind: Policy
+{{ end }}
