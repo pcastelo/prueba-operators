@@ -21,23 +21,23 @@ spec:
           remediationAction: enforce
           severity: medium
           object-templates:
-		    {{- if ne .namespace "openshift-operators" }}
+		        {{- if ne .namespace "openshift-operators" }}
             - complianceType: musthave
               objectDefinition:
-				apiVersion: v1
-				kind: Namespace
-				metadata:
-				  name: {{ .namespace }}
-		    {{- end }}
-		    {{- if ne .namespace "openshift-operators" }}
+                apiVersion: v1
+                kind: Namespace
+                metadata:
+                  name: {{ .namespace }}
+		        {{- end }}
+		        {{- if ne .namespace "openshift-operators" }}
             - complianceType: musthave		
-			  apiVersion: operators.coreos.com/v1alpha2
-			  kind: OperatorGroup
-			  metadata:
-			    name: {{ .name }}
-			    namespace: {{ .namespace }}
-			  spec: {}
-		    {{- end }}	
+                apiVersion: operators.coreos.com/v1alpha2
+                kind: OperatorGroup
+                metadata:
+                  name: {{ .name }}
+                  namespace: {{ .namespace }}
+                spec: {}
+		        {{- end }}	
             - complianceType: musthave
               objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha1
