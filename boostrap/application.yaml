@@ -7,13 +7,18 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
   project: default
-  source:
-    path: resources/
-    repoURL: 'https://github.com/pcastelo/prueba-operators.git'
-    targetRevision: HEAD
-    helm:
-      valueFiles:
-        - values.yaml
+  sources:
+    - path: resources/operators
+      repoURL: 'https://github.com/pcastelo/prueba-operators.git'
+      targetRevision: HEAD
+      helm:
+        valueFiles:
+          - values.yaml
+    - path: resources/
+      repoURL: 'https://github.com/pcastelo/prueba-operators.git'
+      targetRevision: HEAD
+      ref: myRepo  
+
   syncPolicy:
     automated:
       selfHeal: true
