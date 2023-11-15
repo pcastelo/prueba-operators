@@ -8,3 +8,8 @@ subscriptions:
     namespace: openshift-operator
     channel: threescale-mas
     clusterSet: gitops-cluster
+
+  - name: odf-operator
+    namespace: openshift-storage
+    channel: stable-4.12
+    clusterSet: gitops-cluster
