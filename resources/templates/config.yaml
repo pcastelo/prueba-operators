@@ -20,20 +20,6 @@ metadata:
   namespace: policies
 spec:
   clusterSet: gitops-clusters
----
-apiVersion: cluster.open-cluster-management.io/v1beta1
-kind: PlacementDecision
-metadata:
-  name: policies-placement-decision-1
-  namespace: policies
-  ownerReferences:
-    - apiVersion: cluster.open-cluster-management.io/v1beta1
-      blockOwnerDeletion: true
-      controller: true
-      kind: Placement
-      name: policies-placement
-      uid: 1ca1741e-3f53-42eb-a988-c620c299ef08
-  labels:
-    cluster.open-cluster-management.io/placement: policies-placement
+
 
 
