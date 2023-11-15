@@ -3,6 +3,7 @@ apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: {{ .name }}-policy
+  namespace: policies
   annotations:
     policy.open-cluster-management.io/categories: ""
     policy.open-cluster-management.io/standards: ""
