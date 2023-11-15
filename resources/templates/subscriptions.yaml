@@ -38,7 +38,9 @@ spec:
                 metadata:
                   name: {{ .name }}
                   namespace: {{ .namespace }}
-                spec: {}
+                spec:
+                  targetNamespaces:
+                    - { { .namespace } }
             {{- end }}
             - complianceType: musthave
               objectDefinition:
