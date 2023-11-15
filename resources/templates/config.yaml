@@ -1,0 +1,77 @@
+---
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: policies
+spec: {}
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: admin
+  namespace: policies
+subjects:
+  - kind: User
+    apiGroup: rbac.authorization.k8s.io
+    name: 'kube:admin'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+---
+apiVersion: cluster.open-cluster-management.io/v1beta2
+kind: ManagedClusterSetBinding
+metadata:
+  name: gitops-clusters
+  namespace: policies
+spec:
+  clusterSet: gitops-clusters
+
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: '5'
+  name: gitops-clusters
+  namespace: openshift-gitops
+  labels:
+    app.kubernetes.io/instance: advance-cluster-management-in-cluster
+spec:
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: vendor
+              operator: In
+              values:
+                - OpenShift
+---
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: policies-placement
+  namespace: policies
+spec:
+  clusterSets:
+    - gitops-clusters
+---
+
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: PlacementDecision
+metadata:
+  name: policies-placement-decision-1
+  namespace: policies
+  ownerReferences:
+    - apiVersion: cluster.open-cluster-management.io/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Placement
+      name: policies-placement
+      uid: 1ca1741e-3f53-42eb-a988-c620c299ef08
+  labels:
+    cluster.open-cluster-management.io/placement: policies-placement
+
+
