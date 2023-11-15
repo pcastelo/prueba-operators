@@ -13,3 +13,13 @@ subscriptions:
     namespace: openshift-storage
     channel: stable-4.12
     clusterSet: gitops-cluster
+
+  - name: elastictsearch-operator
+    namespace: openshift-operators-redhat
+    channel: stable-5.8
+    clusterSet: gitops-cluster
+
+  - name: cluster-logging
+    namespace: openshift-operators
+    channel: stable
+    clusterSet: gitops-cluster
