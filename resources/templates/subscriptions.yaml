@@ -45,7 +45,7 @@ spec:
                   name: {{ .name }}
                   namespace: {{ .namespace }} 
                 spec:
-                  name: rhsso-operator
+                  name: {{ .name }}
                   channel: {{ .channel }}
                   installPlanApproval: Automatic
                   source: {{ .source }}
