@@ -5,7 +5,6 @@ metadata:
   name: {{ .name }}-policy
   namespace: policies
   annotations:
-    argocd.argoproj.io/sync-wave: "1"  
     policy.open-cluster-management.io/categories: ""
     policy.open-cluster-management.io/standards: ""
     policy.open-cluster-management.io/controls: ""
