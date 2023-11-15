@@ -1,0 +1,10 @@
+
+subscriptions:
+  - name: 3scale-operator
+    namespace: 3scale
+    channel: threescale-mas
+    clusterSet: gitops-cluster
+  - name: apicast-operator
+    namespace: openshift-operator
+    channel: threescale-mas
+    clusterSet: gitops-cluster
