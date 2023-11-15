@@ -8,7 +8,7 @@ metadata:
   namespace: policies
   annotations:
 placementRef:
-  name: openshift-gitops
+  name: policies-placement
   apiGroup: cluster.open-cluster-management.io
   kind: Placement
 subjects:
