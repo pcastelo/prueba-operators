@@ -21,36 +21,37 @@ spec:
           remediationAction: enforce
           severity: medium
           object-templates:
-		        {{- if ne .namespace "openshift-operators" }}
+            {{- if ne .namespace "openshift-operators" }}
             - complianceType: musthave
               objectDefinition:
                 apiVersion: v1
                 kind: Namespace
                 metadata:
                   name: {{ .namespace }}
-		        {{- end }}
-		        {{- if ne .namespace "openshift-operators" }}
-            - complianceType: musthave		
+            {{- end }}
+            {{- if ne .namespace "openshift-operators" }}
+            - complianceType: musthave
+              objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha2
                 kind: OperatorGroup
                 metadata:
                   name: {{ .name }}
                   namespace: {{ .namespace }}
                 spec: {}
-		        {{- end }}	
+            {{- end }}
             - complianceType: musthave
               objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha1
                 kind: Subscription
                 metadata:
                   name: {{ .name }}
-                  namespace: {{ .namespace }} 
+                  namespace: {{ .namespace }}
                 spec:
                   name: {{ .name }}
                   channel: {{ .channel }}
                   installPlanApproval: Automatic
-                  source: {{ .source }}
-                  sourceNamespace: {{ .sourceNamespace }} 
+                  source: "redhat-operators"
+                  sourceNamespace: "openshift-marketplace" 
 ---
 apiVersion: policy.open-cluster-management.io/v1
 kind: PlacementBinding
