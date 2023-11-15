@@ -25,6 +25,14 @@ subscriptions:
     channel: stable
     clusterSet: gitops-cluster
 
+
+
+  - name: rhods-prometheus-operator
+    channel: beta
+    installPlanApproval: Automatic
+    namespace: prometheus-operator
+    clusterSet: gitops-cluster
+
 #  - name: grafana-operator
 #    namespace: openshift-operators
 #    channel: v4
