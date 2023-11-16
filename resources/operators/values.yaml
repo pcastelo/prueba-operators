@@ -19,7 +19,12 @@ subscriptions:
 #    channel: stable-5.8
 #    clusterSet: gitops-cluster
 
-
+  - name: rhbk-operator
+    channel: stable-v22
+    clusterSet: gitops-cluster
+    namespace: openshift-operators
+  
+  
   - name: cluster-logging
     namespace: openshift-operators
     channel: stable
