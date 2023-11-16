@@ -28,7 +28,7 @@ subscriptions:
 #    namespace: openshift-operators
 #    channel: v4
 #    clusterSet: gitops-cluster
-#  - name: elastictsearch-operator
-#    namespace: openshift-operators
-#    channel: stable-5.8
-#    clusterSet: gitops-cluster
+  - name: elastictsearch-operator
+    namespace: elastictsearch-operator
+    channel: stable-5.8
+    clusterSet: gitops-cluster
