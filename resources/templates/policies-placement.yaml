@@ -1,8 +1,8 @@
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: policies-placement
-  namespace: policies
+  name: { { .policeNamespace } }-placement
+  namespace: { { .policeNamespace } }
 spec:
   clusterSets:
-    - gitops-clusters
+    - { { .clusterSet } }
