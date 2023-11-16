@@ -23,11 +23,11 @@ subscriptions:
     installPlanApproval: Automatic
     namespace: prometheus-operator
     clusterSet: gitops-clusters
-  - name: rhbk-operator
-    channel: stable-v22
-    clusterSet: gitops-cluster
-    namespace: rhbk-operator
-    clusterSet: gitops-clusters
+#·  - name: rhbk-operator
+#    channel: stable-v22
+#    clusterSet: gitops-cluster
+#    namespace: rhbk-operator
+#    clusterSet: gitops-clusters
   - name: elasticsearch-operator
     namespace: openshift-operators-redhat
     channel: stable-5.8
