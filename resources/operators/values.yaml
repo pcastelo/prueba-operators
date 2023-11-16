@@ -24,11 +24,9 @@ subscriptions:
     channel: stable-v22
     clusterSet: gitops-cluster
     namespace: rhbk-operator
-#  - name: grafana-operator
-#    namespace: openshift-operators
-#    channel: v4
-#    clusterSet: gitops-cluster
-  - name: elastictsearch-operator
-    namespace: elastictsearch-operator
+  - name: elasticsearch-operator
+    namespace: openshift-operators-redhat
     channel: stable-5.8
-    clusterSet: gitops-cluster
+    installPlanApproval: Automatic
+    
+  
