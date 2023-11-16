@@ -22,7 +22,7 @@ spec:
           remediationAction: enforce
           severity: medium
           object-templates:
-            {{- if ne .namespace "openshift-operators" }}
+            {{- if or (ne .namespace "openshift-operators") (ne .namespace "openshift-operators-redhat") }}
             - complianceType: musthave
               objectDefinition:
                 apiVersion: v1
@@ -30,7 +30,7 @@ spec:
                 metadata:
                   name: {{ .namespace }}
             {{- end }}
-            {{- if ne .namespace "openshift-operators" }}
+            {{- if or (ne .namespace "openshift-operators") (ne .namespace "openshift-operators-redhat") }}
             - complianceType: musthave
               objectDefinition:
                 apiVersion: operators.coreos.com/v1alpha2

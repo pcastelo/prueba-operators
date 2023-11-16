@@ -1,8 +1,9 @@
+---
 apiVersion: cluster.open-cluster-management.io/v1beta1
 kind: Placement
 metadata:
-  name: { { .policeNamespace } }-placement
-  namespace: { { .policeNamespace } }
+  name: {{ .policyNamespace }}-placement
+  namespace: {{ .policyNamespace }}
 spec:
   clusterSets:
-    - { { .clusterSet } }
+    - {{ .clusterSet }}
