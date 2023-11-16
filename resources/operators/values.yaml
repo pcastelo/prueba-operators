@@ -1,4 +1,4 @@
-
+c
 subscriptions:
   - name: 3scale-operator
     namespace: 3scale
@@ -22,7 +22,7 @@ subscriptions:
   - name: rhbk-operator
     channel: stable-v22
     clusterSet: gitops-cluster
-    namespace: openshift-operators
+    namespace: keycloak
   
   
   - name: cluster-logging
