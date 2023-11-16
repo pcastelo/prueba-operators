@@ -1,0 +1,35 @@
+
+subscriptions:
+  - name: apicast-operator
+    namespace: openshift-operator
+    channel: threescale-mas
+    clusterSet: gitops-cluster
+
+  - name: odf-operator
+    namespace: openshift-storage
+    channel: stable-4.12
+    clusterSet: gitops-cluster
+
+#  - name: elastictsearch-operator
+#    namespace: openshift-operators
+#    channel: stable-5.8
+#    clusterSet: gitops-cluster
+
+
+  - name: cluster-logging
+    namespace: openshift-operators
+    channel: stable
+    clusterSet: gitops-cluster
+
+
+
+  - name: rhods-prometheus-operator
+    channel: beta
+    installPlanApproval: Automatic
+    namespace: prometheus-operator
+    clusterSet: gitops-cluster
+
+#  - name: grafana-operator
+#    namespace: openshift-operators
+#    channel: v4
+#    clusterSet: gitops-cluster
