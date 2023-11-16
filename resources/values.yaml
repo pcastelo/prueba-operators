@@ -1,33 +1,34 @@
 policyNamespace: policies
-clusterSet: gitops-cluster
+clusterSet: gitops-clusters
 
 subscriptions:
   - name: 3scale-operator
     namespace: 3scale
     channel: threescale-mas
-    clusterSet: gitops-cluster
+    clusterSet: gitops-clusters
   - name: apicast-operator
     namespace: openshift-operator
     channel: threescale-mas
-    clusterSet: gitops-cluster
+    clusterSet: gitops-clusters
   - name: odf-operator
     namespace: openshift-storage
     channel: stable-4.12
-    clusterSet: gitops-cluster
+    clusterSet: gitops-clusters
   - name: cluster-logging
     namespace: openshift-operators
     channel: stable
-    clusterSet: gitops-cluster
+    clusterSet: gitops-clusters
   - name: rhods-prometheus-operator
     channel: beta
     installPlanApproval: Automatic
     namespace: prometheus-operator
-    clusterSet: gitops-cluster
+    clusterSet: gitops-clusters
   - name: rhbk-operator
     channel: stable-v22
     clusterSet: gitops-cluster
     namespace: rhbk-operator
+    clusterSet: gitops-clusters
   - name: elasticsearch-operator
     namespace: openshift-operators-redhat
     channel: stable-5.8
-    clusterSet: gitops-cluster
+    clusterSet: gitops-clusters
