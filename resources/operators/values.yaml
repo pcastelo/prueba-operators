@@ -27,6 +27,6 @@ subscriptions:
   - name: elasticsearch-operator
     namespace: openshift-operators-redhat
     channel: stable-5.8
-    installPlanApproval: Automatic
+    clusterSet: gitops-cluster
     
   
